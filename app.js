@@ -20,14 +20,12 @@ const corsOptions = {
    optionsSuccessStatus: 200
 };
 app.use(cors(corsOptions));
-const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 const routeRoutes = require('./routes/prove');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json())
-app.use('/admin', adminRoutes);
 app.use(shopRoutes);
 app.use(routeRoutes);
 

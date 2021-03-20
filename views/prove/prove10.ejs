@@ -3,13 +3,21 @@
 <%- include('../includes/navigation.ejs') %>
 <body>
     <main>
-        <div id="listdata"></div>
-        <div>
-            <input type="text" , id="newAvenger" , placeholder="New Avenger's name">
+        <div class="container is-max-desktop">
 
-            <button id="submitAvenger" onclick="submitAvenger()">Submit</button>
+        
+        <div id="listdata"></div>
+        <div class="field has-addons">
+            <div class="control">
+                <input type="text" class="input"  id="newAvenger"  placeholder="New Avenger's name">
+            </div>
+            <div class="control">
+
+            <button class="button is-link" id="submitAvenger" onclick="submitAvenger()">Submit</button>
+            </div>
 
         </div>
+    </div>
 
     </main>
     <script src="/socket.io/socket.io.js"></script>
