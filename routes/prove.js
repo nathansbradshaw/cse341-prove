@@ -19,8 +19,6 @@ router.post('/prove/insert', (req, res, next) => {
     /************************************************
      * INSERT YOUR WEB ENDPOINT CODE HERE
      ************************************************/
-    console.log("PAPAPAPAPAPAPAPAPA")
-    console.log(req.body.newAvenger)
     if (req.body.newAvenger !== undefined) {
         const newAvenger = req.body.newAvenger
         if (dummyData.avengers.find(element => element.name === newAvenger) === undefined) {
@@ -32,5 +30,7 @@ router.post('/prove/insert', (req, res, next) => {
         res.sendStatus(400)
     }
 });
+
+
 
 module.exports = router;
