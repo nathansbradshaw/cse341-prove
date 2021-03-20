@@ -7,6 +7,8 @@ const bodyParser = require('body-parser');
 const errorController = require('./controllers/error');
 
 const app = express();
+const http = require('http').createServer(app);
+const io = require('socket.io')(http);
 
 const PORT = process.env.PORT || 5000 // So we can run on heroku || (OR) localhost:5000
 
@@ -31,4 +33,24 @@ app.use(routeRoutes);
 
 app.use(errorController.get404);
 
-app.listen(PORT);
+io.on('connection', (socket) => {
+   console.log('a user connected');
+   socket.on('disconnect', () => {
+     console.log('user disconnected');
+   });
+ });
+
+ io.on('connection', (socket) => {
+   socket.on('chat message', (msg) => {
+     console.log('message: ' + msg);
+   });
+ });
+ io.on('connection', (socket) => {
+   socket.on('chat message', (msg) => {
+     io.emit('chat message', msg);
+   });
+ });
+
+http.listen(PORT, () => {
+   console.log(`listening on ${PORT}`)
+});
