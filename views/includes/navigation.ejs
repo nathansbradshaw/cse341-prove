@@ -1,10 +1,11 @@
-<header class="main-header">
-    <nav class="main-header__nav">
-        <ul class="main-header__item-list">
-            <li class="main-header__item">
-                <a class="<%= path === '/' ? 'active' : '' %>" href="/prove">Prove10 and 11</a>
-            </li>
 
-        </ul>
+    <nav class="navbar is-primary">
+        <div class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item <%= path === '/prove' ? 'is-active' : '' %>" href="/prove">Prove10 and 11</a>
+
+                <a class="navbar-item <%= path === '/login' ? 'active' : '' %>" href="/">Prove12-login</a>
+                <a class="navbar-item <%= path === '/chat' ? 'active' : '' %>" href="/chat">Prove12-chat</a>
+            </div>
+        </div>
     </nav>
-</header>
